@@ -1,0 +1,2 @@
+-> To open the project, you might need to install MongoDB first.
+-> type "npm start" to start
