@@ -1,9 +1,18 @@
-@import 'variables';
+@import 'stylesheet/sidebar.scss';
+@import 'stylesheet/home/pond-card.scss';
+@import 'stylesheet/home/status-bar.scss';
+@import 'stylesheet/storedponds/pond-detail.scss';
+@import 'stylesheet/create-pond/create-pond.scss';
+@import 'stylesheet/storedponds/configure.scss';
 
-h1{
-    color: red;
+//body
+.body-container {
+  position: relative;
+  text-align: center;
+  width: 80%;
+  height: 100%;
+  justify-content: center;
+  // align-items: center;
 }
 
-h2{
-    color: green;
-}
+

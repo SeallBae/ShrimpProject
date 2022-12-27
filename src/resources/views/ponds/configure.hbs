@@ -1,0 +1,97 @@
+<div class="update-form">
+    <p style="font-size:30px; font-style:italic; margin-bottom:30px">Update Pond's Infomation</p>
+  <form method="POST" action="/ponds/{{pond._id}}?_method=PUT">
+    <div class="form-group">
+      <label for="PondName">Pond Name</label>
+      <input
+        type="text"
+        class="form-control"
+        value="{{pond.PondName}}"
+        id="PondName"
+        name="PondName"
+      />
+    </div>
+    <div class="form-group">
+      <label for="Type">Shrimp Type</label>
+      <input
+        type="text"
+        class="form-control"
+        value="{{pond.Type}}"
+        id="Type"
+        name="Type"
+      />
+    </div>
+    <div class="form-group">
+      <label for="Population">Population</label>
+      <input
+        type="text"
+        class="form-control"
+        value="{{pond.Population}}"
+        id="Population"
+        name="Population"
+      />
+    </div>
+    <div class="form-group">
+      <label for="Area">Area</label>
+      <input
+        type="text"
+        class="form-control"
+        value="{{pond.Area}}"
+        id="Area"
+        name="Area"
+      />
+    </div>
+    <div class="form-group">
+      <label for="Depth">Depth</label>
+      <input
+        type="text"
+        class="form-control"
+        value="{{pond.Depth}}"
+        id="Depth"
+        name="Depth"
+      />
+    </div>
+    <div class="form-group">
+      <label for="Watertype">Watertype</label>
+      <input
+        type="text"
+        class="form-control"
+        value="{{pond.Watertype}}"
+        id="Watertype"
+        name="Watertype"
+      />
+    </div>
+    <div class="form-group">
+      <label for="Volume">Volume</label>
+      <input
+        type="text"
+        class="form-control"
+        value="{{pond.Volume}}"
+        id="Volume"
+        name="Volume"
+      />
+    </div>
+    <div class="form-group">
+      <label for="UpperECLimit">UpperECLimit</label>
+      <input
+        type="text"
+        class="form-control"
+        value="{{pond.UpperECLimit}}"
+        id="UpperECLimit"
+        name="UpperECLimit"
+      />
+    </div>
+    <div class="form-group">
+      <label for="UnderECLimit">UnderECLimit</label>
+      <input
+        type="text"
+        class="form-control"
+        value="{{pond.UnderECLimit}}"
+        id="UnderECLimit"
+        name="UnderECLimit"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Update</button>
+  </form>
+</div>
+

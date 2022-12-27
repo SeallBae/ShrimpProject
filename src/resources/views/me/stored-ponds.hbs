@@ -1,0 +1,78 @@
+<div class="pond-container">
+  {{#each ponds}}
+    <div class="card pond-card">
+      <div class="card-body">
+        <h5 class="card-title">Pond {{this.PondName}}</h5>
+        <p class="card-text">Type: {{this.Type}}</p>
+        <p class="card-text">Population: {{this.Population}}</p>
+        <a
+          href="/ponds/{{this._id}}/configure"
+          class="btn btn-primary btn-detail"
+        >Update</a>
+        <a
+          href=""
+          class="btn btn-primary btn-delete"
+          data-toggle="modal"
+          data-target="#deleteConfirmationBox"
+          data-id="{{this._id}}"
+        >Delete</a>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+
+{{! //Confirm_Delete }}
+<div id="deleteConfirmationBox" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Warning!</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this pond? This cannot be undone.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-delete-pond"  class="btn btn-primary">Confirm Delete</button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+        >Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! //Hidden Delete Form }}
+<form name="delete-pond-form" method="POST"></form>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function(){
+
+    var pond_id;
+    var deleteForm = document.forms['delete-pond-form'];
+    var btnDeletePond = document.getElementById('btn-delete-pond');
+
+    $('#deleteConfirmationBox').on('show.bs.modal', function (event) { 
+      var button = $(event.relatedTarget); 
+      pond_id = button.data('id'); 
+    }); 
+    
+    btnDeletePond.onclick = function(){
+      deleteForm.action = '/ponds/' + pond_id + '?_method=DELETE';
+      deleteForm.submit();
+      alert('Delete Complete!');
+    }
+  });
+
+</script>

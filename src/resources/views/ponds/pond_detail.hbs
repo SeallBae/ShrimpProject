@@ -1,0 +1,83 @@
+<div class="pond-infomations-bar">
+  <h2>Pond {{pond.PondName}}</h2>
+  <div class="pond-infomations">
+    <h2>Type: {{pond.Type}}</h2>
+    <h2>Population: {{pond.Population}}</h2>
+    <h2>Area: {{pond.Area}}</h2>
+    <h2>Depth: {{pond.Depth}}</h2>
+    <h2>Watertype: {{pond.Watertype}}</h2>
+    <h2>Volume: {{pond.Volume}}</h2>
+  </div>
+</div>
+
+<div class="EC">
+  <p class="EC-title">Overall EC (Salinity)</p>
+  <canvas id="EC-Chart" class="EC-chart"></canvas>
+  <a 
+    href="/ponds/{{pond.slug}}/randominlimit"
+    class="btn btn-primary btn-detail"
+  >RandInLimit</a>
+  <a
+    href="/ponds/{{pond.slug}}/randomoutlimit"
+    class="btn btn-primary btn-detail"
+  >RandOutLimit</a>
+  <span class="hidden-uppereclimit">{{pond.UpperECLimit}}</span>
+
+</div>
+{{#each pond_ec}}
+  <span class="hidden-ec">{{this.EC}}</span>
+  <span class="hidden-ec-createdAt">{{this.createdAt}}</span>
+  <span class="hidden-uppereclimit">{{pond.UpperECLimit}}</span>
+{{/each}}
+
+
+<script>
+  var Time = [];
+  var Values = [];
+  var hiddenec = document.querySelectorAll(".hidden-ec");
+  var ec_create = document.querySelectorAll(".hidden-ec-createdAt");
+  var hidden_limit = document.querySelector(".hidden-uppereclimit");
+  var limit = parseFloat(hidden_limit.innerHTML)
+  hiddenec.forEach((ec, ecindex, ecarr)=>{
+    ec_create.forEach((ecc, eccindex, eccarr)=>{
+      if (ecindex === eccindex){
+
+        Values.push(parseFloat(ec.innerHTML));
+        Time.push(parseFloat(ec_create.innerHTML))
+
+        if((Time.length >= 8)&&(Values.length >= 8)){
+          Time = Time.slice(1);
+          Values = Values.slice(1);
+        }
+      }
+    });
+    if (ecindex === hiddenec.length-1){
+      new Chart("EC-Chart", {
+        type: "line",
+        data: {
+          labels: Time,
+            datasets: [
+              {
+                lineTension: 0,
+                backgroundColor: ["rgba(105, 0, 132, .2)"],
+                borderColor: ["rgba(200, 99, 132, .7)"],
+                borderWidth: 2,
+                data: Values,
+              },
+            ],
+          },
+          options: {
+            legend: { display: false },
+            scales: {
+              yAxes: [{ ticks: { min: 0, max: 8 } }],
+            },
+          },    
+      });
+      if(Values[Values.length - 1] >= limit){
+          alert("Warning! Your EC is rasing above the limit! \nYou might try these solution: \n1. Change the water. \n2. Increase fan and oxygen system powers. \n3. Check on the algae an microorganism conditions.");
+      }
+        
+    }
+  });
+
+</script>

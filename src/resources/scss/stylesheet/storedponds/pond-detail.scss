@@ -1,0 +1,51 @@
+//pond_detail
+.pond-infomations-bar {
+  display: block;
+  background: linear-gradient(
+    90deg,
+    rgba(118, 184, 82, 1) 0%,
+    rgba(141, 194, 111, 1) 50%
+  );
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 20px;
+  padding: 10px 20px 10px 20px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.pond-infomations {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+//EC-Chart
+.EC {
+  align-items: center;
+  justify-content: center;
+}
+.EC-title {
+  text-align: left;
+  font-size: 30px;
+  padding-left: 50px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.EC-chart{
+  font-size: 20px;
+  margin-left: 100px;
+  max-width: 1000px;
+  max-height: 350px;
+  width: 100%;
+}
+.RandInLimit:hover{
+  background-color: red;
+}
+
+.hidden-ec{
+  display: none;
+}
+.hidden-ec-createdAt{
+  display: none;
+}
+.hidden-uppereclimit{
+  display: none;
+}

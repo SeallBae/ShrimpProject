@@ -5,6 +5,6 @@ const router = express.Router();
 const sitecontrollers = require('../app/controllers/SiteControllers')
 
 
-router.use('/', sitecontrollers.index);
+router.get('/', sitecontrollers.index);
 
 module.exports = router;

@@ -1,0 +1,52 @@
+//status_bar
+.status-bar {
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px 20px 10px 20px;
+    width: 1100px;
+    height: 150px;
+    background: linear-gradient(90deg, rgba(118,184,82,1) 0%, rgba(141,194,111,1) 50%);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  .calendar-container{
+      display: flex;
+      align-items: center;
+      width: 50%;
+      height: 150px;
+  }
+  .weather-container{
+      display: flex;
+      align-items: center;
+      justify-content:center;
+      text-align: center;
+      width: 50%;
+      height: 150px;
+      
+  }
+  .calendar-icon{
+      width: 20%;
+      display: flex;
+      align-items: center;
+
+  }
+  .calendar{
+      display: block;
+      align-items: left;
+      padding-left: 30px;
+      font-size: 30px;
+      margin-top: 20px;
+  }
+  .weather-icon{
+      width: 20%;
+      display: flex;
+      align-items: center;
+  }
+  .weather{
+      display: block;
+      align-items: left;
+      padding-left: 30px;
+      font-size: 30px;
+      margin-top: 20px;
+  }

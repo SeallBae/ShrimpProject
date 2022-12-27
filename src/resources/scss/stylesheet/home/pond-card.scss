@@ -1,0 +1,17 @@
+//pond_card
+.pond-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .pond-card{
+    width: 500px;
+    height: 200px;
+    margin-top: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+    background: linear-gradient(90deg, rgba(118,184,82,1) 0%, rgba(141,194,111,1) 50%);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    // border: 5px black;
+  }

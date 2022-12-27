@@ -1,1 +1,38 @@
-<h1> Home Page </h1>
+<div class="status-bar">
+  <div class="calendar-container">
+    <div class="calendar-icon">
+      <img style="width:100%" src="/icon/calendar.png" />
+    </div>
+    <div class="calendar">
+      <p>Friday</p>
+      <p>18/11/2022</p>
+    </div>
+  </div>
+  <div class="weather-container">
+    <div class="weather-icon">
+      <img style="width:100%" src="/icon/cloudy.png" />
+    </div>
+    <div class="weather">
+      <p>Sunday</p>
+      <p>Temperature: 30-31</p>
+    </div>
+  </div>
+</div>
+
+<div class="mt-4 welcome">
+  <p>Welcome back, Guest!{{user.username}} </p>
+  <p>Your pond(s) look healthy!</p>
+</div>
+<div class="mt-4 pond-container">
+  {{#each ponds}}
+    <div class="card pond-card">
+      <div class="card-body">
+        <h5 class="card-title">Pond {{this.PondName}}</h5>
+        <p class="card-text">Type: {{this.Type}}</p>
+        <p class="card-text">Population: {{this.Population}}</p>
+        <a href="/ponds/{{this.slug}}" class="btn btn-primary btn-detail">Go to detail</a>
+      </div>
+    </div>
+  {{/each}}
+
+</div>
